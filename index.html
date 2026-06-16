@@ -1,114 +1,163 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Dulce Tradición</title>
-
+  <meta name="description" content="Dulce Tradición — Galletas artesanales elaboradas con recetas familiares. Pide por WhatsApp con entrega a domicilio.">
+  <meta property="og:title" content="Dulce Tradición — Galletas Artesanales">
+  <meta property="og:description" content="Galletas artesanales hechas con amor y recetas familiares. Compra fácil por WhatsApp.">
+  <meta property="og:type" content="website">
+  <title>Dulce Tradición — Galletas Artesanales</title>
   <link rel="stylesheet" href="styles.css">
 
   <!-- Google Analytics -->
-
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MT47RNY66M"> </script>
-
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MT47RNY66M"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-
-    function gtag(){
-      dataLayer.push(arguments);
-    }
-
+    function gtag(){ dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-MT47RNY66M');
   </script>
-
 </head>
 <body>
 
-  <header class="hero">
-
-    <h1>Dulce Tradición</h1>
-
-    <p>
-      Galletas artesanales elaboradas con recetas familiares tradicionales.
-    </p>
-
-    <button id="btnHero">
-      Comprar ahora
+  <!-- ── Navbar ───────────────────────────────────────── -->
+  <nav class="navbar">
+    <span class="navbar-brand">Dulce Tradición</span>
+    <div class="navbar-links">
+      <a href="#inicio">Inicio</a>
+      <a href="#productos">Productos</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <button class="btn-carrito" id="btnCarrito" aria-label="Ver carrito">
+      <span class="carrito-icono">🛒</span>
+      <span class="carrito-badge hidden" id="carritoBadge">0</span>
     </button>
+  </nav>
 
+  <!-- ── Hero ─────────────────────────────────────────── -->
+  <header class="hero" id="inicio">
+    <div class="hero-content">
+      <h1>Dulce Tradición</h1>
+      <p>Galletas artesanales elaboradas con recetas familiares.<br>Hechas con amor, entregadas en tu puerta.</p>
+      <button id="btnHero" class="btn-hero">Ver productos</button>
+    </div>
   </header>
 
-  <section class="productos">
-
+  <!-- ── Catálogo ──────────────────────────────────────── -->
+  <section id="productos" class="productos">
     <h2>Nuestros productos</h2>
-
-    <div class="contenedor-productos">
-
-      <div class="card">
-        <h3>Galletas de avena</h3>
-        <p>$8.000</p>
-        <button class="btnComprar">
-          Comprar
-        </button>
-      </div>
-
-      <div class="card">
-        <h3>Galletas de coco</h3>
-        <p>$10.000</p>
-        <button class="btnComprar">
-          Comprar
-        </button>
-      </div>
-
-      <div class="card">
-        <h3>Galletas con chocolate</h3>
-        <p>$12.000</p>
-        <button class="btnComprar">
-          Comprar
-        </button>
-      </div>
-
-    </div>
-
+    <p class="seccion-subtitulo">Elige tus favoritos y finaliza tu pedido por WhatsApp</p>
+    <div class="contenedor-productos" id="catalogo"></div>
   </section>
 
+  <!-- ── Beneficios ────────────────────────────────────── -->
   <section class="beneficios">
-
     <h2>¿Por qué elegirnos?</h2>
-
-    <ul>
-      <li>Ingredientes naturales</li>
-      <li>Recetas tradicionales</li>
-      <li>Entrega rápida</li>
-    </ul>
-
+    <div class="beneficios-grid">
+      <div class="beneficio-item">
+        <span class="beneficio-icono">🌿</span>
+        <h3>Ingredientes naturales</h3>
+        <p>Sin conservantes ni colorantes artificiales.</p>
+      </div>
+      <div class="beneficio-item">
+        <span class="beneficio-icono">👨‍👩‍👧</span>
+        <h3>Recetas familiares</h3>
+        <p>Tradición transmitida de generación en generación.</p>
+      </div>
+      <div class="beneficio-item">
+        <span class="beneficio-icono">🚚</span>
+        <h3>Entrega a domicilio</h3>
+        <p>Coordina tu entrega directamente por WhatsApp.</p>
+      </div>
+    </div>
   </section>
 
-  <section class="contacto">
-
+  <!-- ── Contacto ──────────────────────────────────────── -->
+  <section id="contacto" class="contacto">
     <h2>Contáctanos</h2>
-
-    <form id="formulario">
-
-      <input type="text" placeholder="Nombre" required>
-
-      <input type="email" placeholder="Correo" required>
-
-      <textarea placeholder="Escribe tu pedido"></textarea>
-
-      <button type="submit">
-        Enviar pedido
+    <p class="contacto-desc">¿Tienes alguna pregunta o quieres un pedido especial? Escríbenos y te respondemos enseguida.</p>
+    <form id="formulario-contacto" novalidate>
+      <input type="text" id="contacto-nombre" placeholder="Tu nombre" required>
+      <input type="tel" id="contacto-tel" placeholder="Tu teléfono (opcional)">
+      <textarea id="contacto-mensaje" placeholder="¿En qué podemos ayudarte?" rows="4"></textarea>
+      <button type="submit" class="btn-whatsapp-form">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Enviar por WhatsApp
       </button>
-
     </form>
-
   </section>
+
+  <!-- ── Footer ────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p class="footer-brand">Dulce Tradición</p>
+      <p class="footer-tagline">Galletas artesanales hechas con amor</p>
+      <nav class="footer-links">
+        <a href="politica-datos.html">Política de Tratamiento de Datos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <p class="footer-copy">&copy; 2026 Dulce Tradición. Proyecto académico.</p>
+    </div>
+  </footer>
+
+  <!-- ── Overlay compartido ────────────────────────────── -->
+  <div class="overlay hidden" id="carritoOverlay"></div>
+  <div class="overlay hidden" id="checkoutOverlay"></div>
+
+  <!-- ── Carrito (drawer lateral) ─────────────────────── -->
+  <aside class="carrito-drawer hidden" id="carritoDrawer" aria-label="Carrito de compras">
+    <div class="carrito-header">
+      <h3>Tu carrito</h3>
+      <button class="btn-cerrar" id="btnCerrarCarrito" aria-label="Cerrar carrito">&times;</button>
+    </div>
+    <div class="carrito-items" id="carritoItems"></div>
+    <div class="carrito-footer" id="carritoFooter"></div>
+  </aside>
+
+  <!-- ── Checkout (modal) ──────────────────────────────── -->
+  <div class="checkout-modal hidden" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitulo">
+    <div class="checkout-content">
+      <div class="checkout-header">
+        <h3 id="checkoutTitulo">Finalizar pedido</h3>
+        <button class="btn-cerrar" id="btnCerrarCheckout" aria-label="Cerrar">&times;</button>
+      </div>
+      <div class="checkout-resumen" id="checkoutResumen"></div>
+      <form id="formulario-checkout" novalidate>
+        <label for="co-nombre">Nombre completo *</label>
+        <input type="text" id="co-nombre" placeholder="Tu nombre completo" required>
+
+        <label for="co-tel">Teléfono de contacto *</label>
+        <input type="tel" id="co-tel" placeholder="3001234567" required>
+
+        <label for="co-dir">Dirección de entrega *</label>
+        <input type="text" id="co-dir" placeholder="Calle 123 # 45-67, Ciudad" required>
+
+        <label for="co-notas">Notas del pedido</label>
+        <textarea id="co-notas" placeholder="Instrucciones especiales, restricciones alimentarias..." rows="2"></textarea>
+
+        <div class="consent-row">
+          <input type="checkbox" id="co-consent" required>
+          <label for="co-consent">
+            Autorizo el tratamiento de mis datos personales conforme a la
+            <a href="politica-datos.html" target="_blank" rel="noopener">Política de Tratamiento de Datos</a>
+            de Dulce Tradición (Ley 1581 de 2012).
+          </label>
+        </div>
+
+        <button type="submit" class="btn-finalizar-whatsapp">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Enviar pedido por WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ── WhatsApp FAB ──────────────────────────────────── -->
+  <a class="whatsapp-fab" id="whatsappFab" href="#" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
 
   <script src="script.js"></script>
-
 </body>
 </html>
