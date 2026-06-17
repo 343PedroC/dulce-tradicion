@@ -1,6 +1,5 @@
 // ─── Configuración ──────────────────────────────────────────────────────────
-// Reemplaza este número con el número real de WhatsApp de la tienda (formato: 57 + número sin espacios)
-const TIENDA_WHATSAPP = '573001234567';
+const TIENDA_WHATSAPP = '573008784317';
 
 // ─── Catálogo de productos ───────────────────────────────────────────────────
 const PRODUCTOS = [
@@ -27,6 +26,14 @@ const PRODUCTOS = [
     descripcion: 'Suaves galletas bañadas en chocolate semiamargo de origen colombiano.',
     unidad: 'Bolsa × 8 unidades',
     emoji: '🍫',
+  },
+  {
+    id: 4,
+    nombre: 'Galletas de leche',
+    precio: 9000,
+    descripcion: 'Cremosas galletas elaboradas con leche entera y mantequilla, de textura suave y sabor dulce tradicional.',
+    unidad: 'Bolsa × 10 unidades',
+    emoji: '🥛',
   },
 ];
 
