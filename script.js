@@ -35,6 +35,22 @@ const PRODUCTOS = [
     unidad: 'Bolsa × 10 unidades',
     emoji: '🥛',
   },
+  {
+    id: 5,
+    nombre: 'Galletas de arequipe',
+    precio: 9000,
+    descripcion: 'Cremosas galletas elaboradas con leche entera, mantequilla y arequipe, sabor dulce y tradicional.',
+    unidad: 'Bolsa × 8 unidades',
+    emoji: '🍮',
+  },
+  {
+    id: 6,
+    nombre: 'Galletas de Miel',
+    precio: 9000,
+    descripcion: 'Cremosas galletas elaboradas con avena integral y miel, perfectas para el desayuno o la media tarde.',
+    unidad: 'Bolsa × 10 unidades',
+    emoji: '🍯',
+  },
 ];
 
 // ─── Estado del carrito ──────────────────────────────────────────────────────
